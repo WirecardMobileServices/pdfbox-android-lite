@@ -1,23 +1,24 @@
 package org.apache.pdfbox.util;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class PDFBoxResourceLoader {
 	/**
 	 * The Context of the main app
 	 */
 	private static Context CONTEXT = null;
-	
+
 	/**
 	 * The AssetManager used to load the resources
 	 */
     private static AssetManager ASSET_MANAGER = null;
-    
+
     /**
      * Whether an uninitialized warning has already been given
      */
@@ -25,7 +26,7 @@ public class PDFBoxResourceLoader {
 
     /**
      * Initializes the loader
-     * 
+     *
      * @param context the context of the main app
      */
     public static void init(Context context){
@@ -34,10 +35,10 @@ public class PDFBoxResourceLoader {
             ASSET_MANAGER = CONTEXT.getAssets();
         }
     }
-    
+
     /**
      * Checks whether the loader has been initialized
-     * 
+     *
      * @return whether the loader has been initialized or not
      */
     public static boolean isReady() {
@@ -50,12 +51,18 @@ public class PDFBoxResourceLoader {
 
     /**
      * Loads a resource file located in the assets folder
-     * 
+     *
      * @param path the path to the resource
      * @return the resource as an InputStream
      * @throws IOException if the resource cannot be found
      */
     public static InputStream getStream(String path) throws IOException {
-        return ASSET_MANAGER.open(path);
+        try {
+            return ASSET_MANAGER.open(path);
+        } catch (FileNotFoundException e) {
+            if (path.charAt(0) == '/')
+                return ASSET_MANAGER.open(path.substring(1));
+            else throw e;
+        }
     }
 }
