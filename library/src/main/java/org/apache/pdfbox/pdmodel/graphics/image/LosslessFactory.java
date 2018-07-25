@@ -149,7 +149,7 @@ public final class LosslessFactory
 //                alphaRaster.getSampleModel().getWidth(),
 //                alphaRaster.getSampleModel().getHeight(),
 //                (int[]) null);
-        int[] pixels = null;
+        int[] pixels = new int[image.getHeight() * image.getWidth()];
         //  stride number of elements in pixels[] between each logical row, abs(stride) must be >= width
         image.extractAlpha().getPixels(pixels, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
         
