@@ -15,9 +15,8 @@
  */
 package org.apache.pdfbox.pdmodel.graphics.image;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 
 import org.apache.pdfbox.cos.COSDictionary;
 import org.apache.pdfbox.cos.COSName;
@@ -30,8 +29,9 @@ import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceGray;
 import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 import org.apache.pdfbox.util.awt.AWTColor;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * Factory for creating a PDImageXObject containing a lossless compressed image.
@@ -150,7 +150,8 @@ public final class LosslessFactory
 //                alphaRaster.getSampleModel().getHeight(),
 //                (int[]) null);
         int[] pixels = null;
-        image.extractAlpha().getPixels(pixels, 0, 0, 0, 0, image.getWidth(), image.getHeight());
+        //  stride number of elements in pixels[] between each logical row, abs(stride) must be >= width
+        image.extractAlpha().getPixels(pixels, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
         
         
         
