@@ -1,14 +1,6 @@
 package org.apache.pdfbox.pdmodel.font;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import android.util.Log;
 
 import org.apache.fontbox.cff.CFFCIDFont;
 import org.apache.fontbox.cff.CFFFont;
@@ -21,7 +13,15 @@ import org.apache.fontbox.type1.Type1Font;
 import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.util.PDFBoxResourceLoader;
 
-import android.util.Log;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * External font service, locates non-embedded fonts via a pluggable FontProvider.
@@ -127,40 +127,27 @@ public final class ExternalFonts
 		substitutes.put("Courier",
 				Arrays.asList("CourierNew", "CourierNewPSMT", "LiberationMono", "NimbusMonL-Regu","DroidSansMono"));
 		substitutes.put("Courier-Bold",
-				Arrays.asList("CourierNewPS-BoldMT", "CourierNew-Bold", "LiberationMono-Bold",
-						"NimbusMonL-Bold","DroidSansMono"));
+				Arrays.asList("CourierNewPS-BoldMT", "CourierNew-Bold", "LiberationMono-Bold", "NimbusMonL-Bold","DroidSansMono"));
 		substitutes.put("Courier-Oblique",
-				Arrays.asList("CourierNewPS-ItalicMT","CourierNew-Italic",
-						"LiberationMono-Italic", "NimbusMonL-ReguObli","DroidSansMono"));
+				Arrays.asList("CourierNewPS-ItalicMT","CourierNew-Italic", "LiberationMono-Italic", "NimbusMonL-ReguObli","DroidSansMono"));
 		substitutes.put("Courier-BoldOblique",
-				Arrays.asList("CourierNewPS-BoldItalicMT","CourierNew-BoldItalic",
-						"LiberationMono-BoldItalic", "NimbusMonL-BoldObli","DroidSansMono"));
+				Arrays.asList("CourierNewPS-BoldItalicMT","CourierNew-BoldItalic", "LiberationMono-BoldItalic", "NimbusMonL-BoldObli","DroidSansMono"));
 		substitutes.put("Helvetica",
 				Arrays.asList("ArialMT", "Arial", "LiberationSans", "NimbusSanL-Regu","Roboto-Regular"));
 		substitutes.put("Helvetica-Bold",
-				Arrays.asList("Arial-BoldMT", "Arial-Bold", "LiberationSans-Bold",
-						"NimbusSanL-Bold","Roboto-Bold"));
+				Arrays.asList("Arial-BoldMT", "Arial-Bold", "LiberationSans-Bold", "NimbusSanL-Bold","Roboto-Bold"));
 		substitutes.put("Helvetica-Oblique",
-				Arrays.asList("Arial-ItalicMT", "Arial-Italic", "Helvetica-Italic",
-						"LiberationSans-Italic", "NimbusSanL-ReguItal", "Roboto-Italic"));
+				Arrays.asList("Arial-ItalicMT", "Arial-Italic", "Helvetica-Italic", "LiberationSans-Italic", "NimbusSanL-ReguItal", "Roboto-Italic"));
 		substitutes.put("Helvetica-BoldOblique",
-				Arrays.asList("Arial-BoldItalicMT", "Helvetica-BoldItalic",
-						"LiberationSans-BoldItalic", "NimbusSanL-BoldItal","Roboto-BoldItalic"));
+				Arrays.asList("Arial-BoldItalicMT", "Helvetica-BoldItalic", "LiberationSans-BoldItalic", "NimbusSanL-BoldItal","Roboto-BoldItalic"));
 		substitutes.put("Times-Roman",
-				Arrays.asList("TimesNewRomanPSMT", "TimesNewRoman", "TimesNewRomanPS",
-						"LiberationSerif", "NimbusRomNo9L-Regu","DroidSerif-Regular"));
+				Arrays.asList("TimesNewRomanPSMT", "TimesNewRoman", "TimesNewRomanPS", "LiberationSerif", "NimbusRomNo9L-Regu","DroidSerif-Regular"));
 		substitutes.put("Times-Bold",
-				Arrays.asList("TimesNewRomanPS-BoldMT", "TimesNewRomanPS-Bold",
-						"TimesNewRoman-Bold", "LiberationSerif-Bold",
-						"NimbusRomNo9L-Medi", "DroidSerif-Bold"));
+				Arrays.asList("TimesNewRomanPS-BoldMT", "TimesNewRomanPS-Bold", "TimesNewRoman-Bold", "LiberationSerif-Bold", "NimbusRomNo9L-Medi", "DroidSerif-Bold"));
 		substitutes.put("Times-Italic",
-				Arrays.asList("TimesNewRomanPS-ItalicMT", "TimesNewRomanPS-Italic",
-						"TimesNewRoman-Italic", "LiberationSerif-Italic",
-						"NimbusRomNo9L-ReguItal","DroidSerif-Italic"));
+				Arrays.asList("TimesNewRomanPS-ItalicMT", "TimesNewRomanPS-Italic", "TimesNewRoman-Italic", "LiberationSerif-Italic", "NimbusRomNo9L-ReguItal","DroidSerif-Italic"));
 		substitutes.put("Times-BoldItalic",
-				Arrays.asList("TimesNewRomanPS-BoldItalicMT", "TimesNewRomanPS-BoldItalic",
-						"TimesNewRoman-BoldItalic", "LiberationSerif-BoldItalic",
-						"NimbusRomNo9L-MediItal","DroidSerif-BoldItalic"));
+				Arrays.asList("TimesNewRomanPS-BoldItalicMT", "TimesNewRomanPS-BoldItalic", "TimesNewRoman-BoldItalic", "LiberationSerif-BoldItalic", "NimbusRomNo9L-MediItal","DroidSerif-BoldItalic"));
 		substitutes.put("Symbol", Arrays.asList("SymbolMT", "StandardSymL"));
 		substitutes.put("ZapfDingbats", Arrays.asList("ZapfDingbatsITC", "Dingbats"));
 
