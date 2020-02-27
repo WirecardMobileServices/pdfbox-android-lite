@@ -219,7 +219,7 @@ public final class PageDrawer extends PDFGraphicsStreamEngine
         if (clippingPath != lastClip)
         {
 //            graphics.setClip(clippingPath);
-        	canvas.clipRegion(clippingPath);
+        	canvas.clipPath(clippingPath.getBoundaryPath());
             lastClip = clippingPath;
         }
     }
